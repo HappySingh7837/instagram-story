@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "image": "https://source.unsplash.com/random/400x600?nature"
+  },
+  {
+    "id": 2,
+    "image": "https://source.unsplash.com/random/400x600?city"
+  },
+  {
+    "id": 3,
+    "image": "https://source.unsplash.com/random/400x600?people"
+  }
+]
