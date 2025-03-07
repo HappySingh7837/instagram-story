@@ -1,29 +1,64 @@
 import { useEffect, useState } from "react";
-import { Box, LinearProgress } from "@mui/material";
+import { Box } from "@mui/material";
 
-const ProgressBar = ({ isActive, duration, onComplete }: { isActive: boolean; duration: number; onComplete: () => void }) => {
+const ProgressBar = ({
+  isActive,
+  duration,
+  reset,
+  onComplete,
+}: {
+  isActive: boolean;
+  duration: number;
+  reset: boolean;
+  onComplete: () => void;
+}) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    if (!isActive) return;
+    let interval: NodeJS.Timeout;
 
-    setProgress(0); // Reset when new story starts
-    const interval = setInterval(() => {
-      setProgress((oldProgress) => {
-        if (oldProgress >= 100) {
-          clearInterval(interval);
-          onComplete(); // Move to the next story
-          return 100;
-        }
-        return oldProgress + 2; // Progress in steps of 2%
-      });
-    }, duration / 50);
+    if (isActive && !reset) {
+      setProgress(0); // Start fresh if new story
+      interval = setInterval(() => {
+        setProgress((prev) => {
+          if (prev >= 100) {
+            clearInterval(interval);
+            onComplete(); // Move to next story
+            return 100;
+          }
+          return prev + 1;
+        });
+      }, duration / 100);
+    }
 
     return () => clearInterval(interval);
-  }, [isActive, duration, onComplete]);
+  }, [isActive, duration, reset]);
+
+  useEffect(() => {
+    if (reset) setProgress(0); // Reset progress when required
+  }, [reset]);
 
   return (
-    <LinearProgress variant="determinate" value={progress} sx={{ width: "100%", height: 4, bgcolor: "gray" }} />
+    <Box
+      sx={{
+        flex: 1,
+        height: "4px",
+        bgcolor: "rgba(255, 255, 255, 0.3)",
+        borderRadius: "2px",
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
+      <Box
+        sx={{
+          position: "absolute",
+          height: "100%",
+          width: `${progress}%`,
+          bgcolor: "white",
+          transition: "width 0.1s linear",
+        }}
+      />
+    </Box>
   );
 };
 
