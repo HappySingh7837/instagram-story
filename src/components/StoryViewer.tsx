@@ -117,11 +117,12 @@ const StoryViewer = ({ storyId, onClose }: { storyId: number | null; onClose: ()
 
       {/* ✅ Close Button & More Options */}
       <Box sx={{ position: "absolute", top: 10, right: 10, display: "flex", gap: 1 }}>
-        <IconButton onClick={onClose} sx={{ color: "white" }} aria-label="Close Story">
-          <CloseIcon />
-        </IconButton>
+        
         <IconButton sx={{ color: "white" }}>
           <MoreVertIcon />
+        </IconButton>
+        <IconButton onClick={onClose} sx={{ color: "white" }} aria-label="Close Story">
+          <CloseIcon />
         </IconButton>
       </Box>
     </Box>
