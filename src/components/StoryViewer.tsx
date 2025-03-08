@@ -32,7 +32,7 @@ const StoryViewer = ({ storyId, onClose }: { storyId: number | null; onClose: ()
 
   const currentStory = stories[currentIndex];
 
-  // 🔹 Function to go to next story
+ 
   const goToNextStory = () => {
     if (currentIndex < stories.length - 1) {
       setCurrentIndex((prev) => (prev !== null ? prev + 1 : 0));
@@ -41,12 +41,12 @@ const StoryViewer = ({ storyId, onClose }: { storyId: number | null; onClose: ()
     }
   };
 
-  // 🔹 Function to go to previous story
+  //  Function to go to previous story
   const goToPrevStory = () => {
     setCurrentIndex((prev) => (prev !== null && prev > 0 ? prev - 1 : stories.length - 1));
   };
 
-  // 🔹 Detect left/right tap
+  //  Detect left/right tap
   const handleTap = (event: React.MouseEvent) => {
     const boxWidth = event.currentTarget.clientWidth;
     const clickX = event.nativeEvent.offsetX;
@@ -78,16 +78,16 @@ const StoryViewer = ({ storyId, onClose }: { storyId: number | null; onClose: ()
         overflow: "hidden",
         cursor: "pointer", // Enable click events
       }}
-      onClick={handleTap} // ✅ Left/Right tap navigation
+      onClick={handleTap} //  Left/Right tap navigation
     >
-      {/* ✅ Progress Bar */}
+      {/*Progress Bar */}
       <Stack direction="row" spacing={1} sx={{ position: "absolute", top: 10, width: "90%", mx: "auto" }}>
         {stories.map((_, index) => (
           <ProgressBar key={index} isActive={index === currentIndex} duration={5000} onComplete={() => {}} />
         ))}
       </Stack>
 
-      {/* ✅ User Info (Profile Picture & Name) */}
+      {/*  User Info (Profile Picture & Name) */}
       <Box
         sx={{
           position: "absolute",
@@ -104,7 +104,7 @@ const StoryViewer = ({ storyId, onClose }: { storyId: number | null; onClose: ()
         </Typography>
       </Box>
 
-      {/* ✅ Story Image */}
+      {/* Story Image */}
       <img
         src={currentStory.image}
         alt="Story"
@@ -115,7 +115,7 @@ const StoryViewer = ({ storyId, onClose }: { storyId: number | null; onClose: ()
         }}
       />
 
-      {/* ✅ Close Button & More Options */}
+      {/* Close Button & More Options */}
       <Box sx={{ position: "absolute", top: 10, right: 10, display: "flex", gap: 1 }}>
         
         <IconButton sx={{ color: "white" }}>

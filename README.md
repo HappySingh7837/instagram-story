@@ -1,54 +1,69 @@
-# React + TypeScript + Vite
+# Instagram Stories Clone 🏞️📸  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **React + Material UI** project that replicates **Instagram Stories**, allowing users to:  
+- View and navigate through stories using tap gestures.
+- Automatically progress to the next story after 5 seconds.
+- Track which stories have been viewed (`isViewed: true`).
+- Smooth progress bar animations like Instagram.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 **Features**
+✅ **Tap Navigation** → Tap left for previous, right for next.  
+✅ **Auto-Advance** → Stories switch every 5 seconds.  
+✅ **Progress Bar** → Shows story progress dynamically.  
+✅ **Viewed State** → Marks stories as viewed after full watch.  
+✅ **Mobile-Friendly UI** → Responsive and fully optimized.  
+✅ **Close & More Options** → Includes close and menu buttons.  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🔧 **Installation & Setup**
+### **1️⃣ Clone the Repository**
+```bash
+git clone https://github.com/HappySingh7837/instagram-story.git
+cd instagram-stories-clone
+2️⃣ Install Dependencies
+npm install
+3️⃣ Start the Development Server
+npm run dev
+The app will run at The app will run at http://localhost:5173
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+📦 instagram-stories-clone
+ ┣ 📂 src
+ ┃ ┣ 📂 components
+ ┃ ┃ ┣ 📜 StoryList.tsx      # Displays story avatars (Instagram-like)
+ ┃ ┃ ┣ 📜 StoryViewer.tsx    # Full-screen story viewer
+ ┃ ┃ ┣ 📜 ProgressBar.tsx    # Progress bar animations
+ ┃ ┣ 📂 redux
+ ┃ ┃ ┣ 📜 useStories.ts      # Story state management (Redux)
+ ┃ ┣ 📜 App.tsx              # Main application file
+ ┃ ┣ 📜 index.tsx            # Entry point
+ ┣ 📜 package.json           # Dependencies
+ ┣ 📜 README.md              # Documentation
+ ┗ 📜 .gitignore             # Ignore unnecessary files
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+# 🧪 Cypress Testing for Instagram Stories Clone
+
+This project uses **Cypress** for end-to-end testing of the **Instagram Stories Clone**. Cypress ensures that:  
+- Stories open and display correctly.  
+- Tap gestures work for navigation.  
+- Progress bars update properly.  
+- Stories mark as viewed after being watched.  
+
+---
+
+## 🚀 **Installation & Setup**
+### **1️⃣ Install Cypress**
+Run the following command to install Cypress in the project:
+```bash
+npm install --save-dev cypress
+
+2️⃣ Open Cypress
+npx cypress open
+
+npx cypress run
+
+

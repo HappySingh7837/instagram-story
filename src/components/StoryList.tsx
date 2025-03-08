@@ -11,8 +11,8 @@ const StoryList = ({ onSelect }: { onSelect: (id: number) => void }) => {
         top: "20px",
         left: "50%",
         transform: "translateX(-50%)",
-        width: "375px", // ✅ Slightly wider for better spacing
-        height: "90vh", // ✅ Adjusted height for proper alignment
+        width: "375px", 
+        height: "90vh", 
         bgcolor: "black",
         borderRadius: "16px",
         border: "4px solid #222",
@@ -45,7 +45,7 @@ const StoryList = ({ onSelect }: { onSelect: (id: number) => void }) => {
               cursor: "pointer",
               display: "flex",
               flexDirection: "column",
-              alignItems: "center", // ✅ Centers text & image
+              alignItems: "center", 
               justifyContent: "center",
             }}
             onClick={() => onSelect(story.id)}
